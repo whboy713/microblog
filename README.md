@@ -19,7 +19,7 @@
 * 前端技术：Vue3、ES6、Element Plus、npm、Vite、Node.js
 ## 启动项目
 
-前端项目：
+前端项目：https://github.com/whboy713/vue-micro-blog
 ```bash
 npm install
 npm run dev

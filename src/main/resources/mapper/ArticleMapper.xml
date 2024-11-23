@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cowcow.blog.mapper.ArticleMapper">
+
+    <!--查询数据list集合-->
+    <select id="selectList" resultType="com.cowcow.blog.entity.Article">
+        select id,title,content,cid,uid,create_time,update_time from article
+        WHERE 1=1
+<!--        <where>-->
+<!--            <if test="vo.cid != null and vo.cid != 0">-->
+<!--                cid=#{vo.cid}-->
+<!--            </if>-->
+<!--        </where>-->
+    </select>
+
+    <insert id="insertArticle">
+        insert into article(title, content, cid, uid)
+        values (#{title}, #{content}, #{cid}, #{uid})
+    </insert>
+
+    <!--根据id查询-->
+    <select id="getArticle" resultType="com.cowcow.blog.entity.Article">
+        select id, title, content, cid, uid, create_time, update_time
+        from article
+        where id = #{id}
+    </select>
+
+    <!--修改文章-->
+    <update id="updateArticle" parameterType="com.cowcow.blog.entity.Article">
+        update article
+        set title=#{title},
+            content=#{content},
+            cid=#{cid}
+        where id = #{id}
+    </update>
+
+    <!--删除文章-->
+    <delete id="deleteArticle">
+        delete from article where id=#{id}
+    </delete>
+</mapper>

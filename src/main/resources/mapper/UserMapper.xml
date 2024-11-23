@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cowcow.blog.mapper.UserMapper">
+
+    <!--登录-->
+    <select id="loginUser" resultType="com.cowcow.blog.entity.User">
+        select uid, username, password, phone, introduction
+        from user
+        where username = #{username}
+    </select>
+
+    <!--注册-->
+    <insert id="insertUser">
+        insert into user(username, password, phone, introduction)
+        values (#{username}, #{password}, #{phone}, #{introduction})
+    </insert>
+
+    <!--根据id查询-->
+    <select id="getUser" resultType="com.cowcow.blog.entity.User">
+        select uid, username, password, phone, introduction
+        from user
+        where uid = #{id}
+    </select>
+
+    <!--修改-->
+    <update id="updateUser">
+        update user
+        set phone=#{phone},
+            introduction=#{introduction}
+        where uid = #{uid}
+    </update>
+</mapper>

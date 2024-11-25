@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(allowCredentials = "true" , originPatterns = "*" , allowedHeaders = "*")
 public class UserController {
 
     @Autowired
